@@ -4,7 +4,10 @@ from typing import List, Optional
 
 
 class CommandUtil:
-  
+    """
+    Utility class for executing shell commands and retrieving Git repository information.
+    """
+    
     @staticmethod
     def execute_with_result(
         cmd: Optional[str] = None,
