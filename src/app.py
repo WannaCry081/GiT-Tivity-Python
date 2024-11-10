@@ -9,6 +9,9 @@ from datetime import datetime
 from os.path import dirname, abspath, join
 from src.utils import ValidationUtil, CommandUtil, FileUtil, ArgumentUtil
 
+
+logging.basicConfig(level=logging.INFO)
+
 class Program:
     
     @staticmethod
