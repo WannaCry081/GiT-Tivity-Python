@@ -1,0 +1,2 @@
+class CommandUtil:
+    pass
