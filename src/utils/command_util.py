@@ -1,4 +1,6 @@
+import os
 import subprocess
+from typing import List, Optional
 
 
 class CommandUtil:
@@ -25,3 +27,13 @@ class CommandUtil:
     def get_total_commits() -> int:
         result = CommandUtil.execute_with_result(cmd="git rev-list --count HEAD")
         return int(result.stdout.strip()) if result.returncode == 0 else 0
+
+    @staticmethod
+    def get_total_files(directory_path: str) -> int:
+        return len(
+            [
+                f
+                for f in os.listdir(directory_path)
+                if os.path.isfile(os.path.join(directory_path, f))
+            ]
+        )
