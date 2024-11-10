@@ -9,7 +9,15 @@ class ArgumentUtil:
     
     @staticmethod
     def parse(arguments: List[str]):
-       
+        """
+        Parses command-line arguments for the contribution activity generator.
+
+        Args:
+            arguments (List[str]): A list of command-line arguments.
+
+        Returns:
+            Namespace: An argparse.Namespace containing the parsed arguments.
+        """
         parser = argparse.ArgumentParser(
             description="Configure commit generation settings."
         )
