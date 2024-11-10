@@ -62,6 +62,9 @@ class Program:
 
     @staticmethod
     def main(args: list[str]) -> int:
+        """
+        Main execution function that processes arguments, performs commits, and updates analytics.
+        """
         try:
             arguments = ArgumentUtil.parse(args)
             current_time = datetime.now()
