@@ -67,7 +67,13 @@ class FileUtil:
 
     @staticmethod
     def update_analytics_file(file_name: str, **kwargs) -> None:
+        """
+        Updates an existing analytics JSON file with new commit and file counts.
 
+        Args:
+            file_name (str): The name of the file to update.
+            **kwargs: Arbitrary keyword arguments for updated commit and file counts.
+        """
         with open(file_name, "r") as rfile:
             settings = json.load(rfile)
 
