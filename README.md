@@ -1,8 +1,8 @@
-# GitHub Contribution Activity Generator
+# 🤖 GitHub Contribution Activity Generator
 
 A simple Python tool that simulates GitHub contributions by generating fake commits for a GitHub repository. It can generate random commits, exclude weekends, and track analytics for each contribution activity.
 
-## Features
+## ✨ Features
 
 - **Generate Random Commits**: Simulate contributions with random commit dates.
 - **Exclude Weekends**: Option to exclude commits on weekends.
@@ -10,13 +10,13 @@ A simple Python tool that simulates GitHub contributions by generating fake comm
 - **Push to GitHub**: Automatically push commits to your GitHub repository.
 - **Customizable Commits**: Control the number of commits to be made and the repository to which they will be pushed.
 
-## Requirements
+## 📦 Requirements
 
 - Python 3.x
 - Git installed and configured on your machine
 - A GitHub repository (optional if using an existing repo)
 
-## Installation
+## 💻 Installation
 
 1. Clone this repository:
 
@@ -37,7 +37,13 @@ A simple Python tool that simulates GitHub contributions by generating fake comm
 
    ```
 
-## Usage
+4. Alternatively, modify the `run.sh` script and execute it:
+
+   ```bash
+   ./run.sh
+   ```
+
+## 🎊 Usage
 
 ### Command-Line Arguments
 
@@ -67,7 +73,7 @@ A simple Python tool that simulates GitHub contributions by generating fake comm
    python main.py
    ```
 
-## How It Works
+## 🚀 How It Works
 
 1. **Git Configuration**: The tool checks for a valid Git configuration (user name and email). If not configured, it prompts the user to initialize Git.
 2. **Commit Generation**: Based on the user input (number of commits, random distribution, weekend exclusion), it generates commits in the repository.
@@ -84,3 +90,29 @@ Finish executing program
 ```
 
 The tool will output logs for each commit, indicating the date, time, and a description of the commit.
+
+## 🤝 Contributing
+
+If you'd like to contribute to this project, please follow these guidelines:
+
+1. Fork the repository.
+2. Create a new branch for your feature:
+   ```bash
+   git checkout -b feature/YourFeature
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -am 'Add new feature'
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature/YourFeature
+   ```
+5. Create a new Pull Request for review.
+
+## 📬 Contact
+
+For any questions or feedback, feel free to reach out:
+
+- **Email:** liraedata59@gmail.com
+- **GitHub:** [WannaCry081](https://github.com/WannaCry081)
