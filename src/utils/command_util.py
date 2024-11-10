@@ -20,3 +20,8 @@ class CommandUtil:
         except subprocess.CalledProcessError as e:
             print(f"Command execution failed: {e}")
             return e
+          
+    @staticmethod
+    def get_total_commits() -> int:
+        result = CommandUtil.execute_with_result(cmd="git rev-list --count HEAD")
+        return int(result.stdout.strip()) if result.returncode == 0 else 0
