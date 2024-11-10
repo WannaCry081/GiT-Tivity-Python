@@ -1,4 +1,5 @@
 import json
+from datetime import datetime
 from typing import Optional
 
 
@@ -26,3 +27,14 @@ class FileUtil:
         with open(file_name, "w") as file:
             json.dump(resource, file, indent=4)
 
+    @staticmethod
+    def update_fake_file(
+        no_reference: int, counter: int, current_time: datetime
+    ) -> None:
+        
+        with open(f"[{no_reference}]-contributions.txt", "a+") as file:
+            if counter == 0:
+                file.write(f"{'=' * 20} {current_time.date()} {'=' * 20}\n")
+            file.write(
+                f"[{counter+1}] Contributions: {current_time.hour}:{current_time.minute}:{current_time.second}:{current_time.microsecond}\n"
+            )
