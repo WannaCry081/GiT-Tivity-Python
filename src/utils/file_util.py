@@ -50,7 +50,14 @@ class FileUtil:
     def update_fake_file(
         no_reference: int, counter: int, current_time: datetime
     ) -> None:
-        
+        """
+        Updates a contribution tracking file with new entries.
+
+        Args:
+            no_reference (int): The reference number for the file.
+            counter (int): The current contribution count.
+            current_time (datetime): The current time for the contribution entry.
+        """
         with open(f"[{no_reference}]-contributions.txt", "a+") as file:
             if counter == 0:
                 file.write(f"{'=' * 20} {current_time.date()} {'=' * 20}\n")
