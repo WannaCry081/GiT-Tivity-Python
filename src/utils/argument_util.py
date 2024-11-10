@@ -3,6 +3,9 @@ from typing import List
 
 
 class ArgumentUtil:
+    """
+    Utility class to parse command-line arguments for configuring commit distribution and repository settings.
+    """
     
     @staticmethod
     def parse(arguments: List[str]):
