@@ -4,7 +4,10 @@ from typing import Optional
 
 
 class FileUtil:
-
+    """
+    Utility class for handling file operations related to Git analytics and contribution tracking.
+    """
+    
     @staticmethod
     def open_json_file(file_name: str) -> Optional[dict]:
         with open(file_name, "r") as file:
