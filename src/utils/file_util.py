@@ -24,6 +24,13 @@ class FileUtil:
 
     @staticmethod
     def create_analytics_file(file_name: str, **kwargs) -> None:
+        """
+        Creates an analytics JSON file with initial Git metadata and settings.
+
+        Args:
+            file_name (str): The name of the file to create.
+            **kwargs: Arbitrary keyword arguments for Git metadata and settings.
+        """
         resource = {
             "git": {
                 "name": kwargs["git_name"],
