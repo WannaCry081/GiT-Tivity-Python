@@ -3,7 +3,10 @@ from pathlib import Path
 from typing import Optional
 
 class ValidationUtil:
-    
+    """
+    Utility class for validating Git configurations and repository state.
+    """
+
     @staticmethod
     def git_is_init() -> bool:
         return Path(".git").exists()
