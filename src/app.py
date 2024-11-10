@@ -13,6 +13,9 @@ from src.utils import ValidationUtil, CommandUtil, FileUtil, ArgumentUtil
 logging.basicConfig(level=logging.INFO)
 
 class Program:
+    """
+    Main program class for automating commits and analytics file updates.
+    """
     
     @staticmethod
     def commit_changes(commit_message: str) -> None:
