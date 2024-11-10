@@ -2,6 +2,7 @@ import subprocess
 from pathlib import Path
 from typing import Optional
 
+
 class ValidationUtil:
     """
     Utility class for validating Git configurations and repository state.
@@ -33,6 +34,12 @@ class ValidationUtil:
 
     @staticmethod
     def git_has_remote() -> bool:
+        """
+        Checks if the Git remote 'origin' exists in the repository.
+
+        Returns:
+            bool: True if the remote 'origin' exists, False otherwise.
+        """
         result = subprocess.run(
             ["git", "remote", "get-url", "origin"],
             stdout=subprocess.PIPE,
