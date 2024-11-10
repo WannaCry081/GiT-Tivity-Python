@@ -13,7 +13,16 @@ class CommandUtil:
         cmd: Optional[str] = None,
         cmd_lst: Optional[List[str]] = None,
     ) -> subprocess.CompletedProcess:
-      
+        """
+        Executes a shell command and returns the result.
+
+        Args:
+            cmd (Optional[str]): A command string to execute.
+            cmd_lst (Optional[List[str]]): A command list to execute.
+
+        Returns:
+            subprocess.CompletedProcess: The result of the executed command.
+        """
         assert (cmd is None) != (
             cmd_lst is None
         ), "Provide either 'cmd' or 'cmd_lst', not both."
