@@ -19,6 +19,15 @@ class ValidationUtil:
 
     @staticmethod
     def git_has_config(result: str) -> Optional[bool]:
+        """
+        Checks if a Git configuration value is set.
+
+        Args:
+            result (str): The output from a Git configuration check command.
+
+        Returns:
+            Optional[bool]: True if the configuration value is present, None if it is empty or missing.
+        """
         value = result.strip() if isinstance(result, str) else ""
         return bool(value) if value else None
 
