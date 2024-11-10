@@ -28,6 +28,15 @@ class Program:
     
     @staticmethod
     def setup_project_directory(repository: str | None) -> str:
+        """
+        Sets up the project directory based on the repository argument.
+
+        Args:
+            repository (Optional[str]): GitHub repository URL or name.
+
+        Returns:
+            str: The name of the project directory.
+        """
         if repository != None:
             project_dir = repository.split("/")[-1].replace(".git", "")
         else:
