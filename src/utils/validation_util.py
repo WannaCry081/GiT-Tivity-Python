@@ -9,6 +9,12 @@ class ValidationUtil:
 
     @staticmethod
     def git_is_init() -> bool:
+        """
+        Checks if the current directory is a Git repository.
+
+        Returns:
+            bool: True if the current directory is a Git repository, False otherwise.
+        """
         return Path(".git").exists()
 
     @staticmethod
