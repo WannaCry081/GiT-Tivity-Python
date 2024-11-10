@@ -38,3 +38,16 @@ class FileUtil:
             file.write(
                 f"[{counter+1}] Contributions: {current_time.hour}:{current_time.minute}:{current_time.second}:{current_time.microsecond}\n"
             )
+
+    @staticmethod
+    def update_analytics_file(file_name: str, **kwargs) -> None:
+
+        with open(file_name, "r") as rfile:
+            settings = json.load(rfile)
+
+        settings["no_of_commits"] = kwargs["total_commits"]
+        settings["no_of_files"] = kwargs["no_of_files"]
+        settings["updated_at"] = kwargs["current_day"]
+
+        with open(file_name, "w") as wfile:
+            json.dump(settings, wfile, indent=4)
