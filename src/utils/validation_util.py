@@ -1,2 +1,5 @@
 class ValidationUtil:
-    pass
+    
+    @staticmethod
+    def git_is_init() -> bool:
+        return Path(".git").exists()
