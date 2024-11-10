@@ -10,6 +10,15 @@ class FileUtil:
     
     @staticmethod
     def open_json_file(file_name: str) -> Optional[dict]:
+        """
+        Opens a JSON file and returns its contents as a dictionary.
+
+        Args:
+            file_name (str): The name of the file to open.
+
+        Returns:
+            Optional[dict]: The file contents as a dictionary, or None if the file could not be read.
+        """
         with open(file_name, "r") as file:
             return json.load(file)
 
