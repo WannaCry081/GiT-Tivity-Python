@@ -37,6 +37,12 @@ class CommandUtil:
           
     @staticmethod
     def get_total_commits() -> int:
+        """
+        Retrieves the total number of commits in the Git repository.
+
+        Returns:
+            int: Total number of commits.
+        """
         result = CommandUtil.execute_with_result(cmd="git rev-list --count HEAD")
         return int(result.stdout.strip()) if result.returncode == 0 else 0
 
