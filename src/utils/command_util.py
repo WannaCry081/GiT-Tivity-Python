@@ -48,6 +48,15 @@ class CommandUtil:
 
     @staticmethod
     def get_total_files(directory_path: str) -> int:
+        """
+        Counts the total number of files in the specified directory.
+
+        Args:
+            directory_path (str): Path to the directory.
+
+        Returns:
+            int: Total number of files in the directory.
+        """
         return len(
             [
                 f
