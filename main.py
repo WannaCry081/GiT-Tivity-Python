@@ -1,6 +1,6 @@
 import sys
-from src import Program
 import logging
+from src import Program
 
 
 if __name__ == "__main__":
