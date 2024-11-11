@@ -12,11 +12,12 @@ from src.utils import ValidationUtil, CommandUtil, FileUtil, ArgumentUtil
 
 logging.basicConfig(level=logging.INFO)
 
+
 class Program:
     """
     Main program class for automating commits and analytics file updates.
     """
-    
+
     @staticmethod
     def commit_changes(commit_message: str) -> None:
         """
@@ -25,31 +26,32 @@ class Program:
         CommandUtil.execute_with_result(cmd="git add .")
         CommandUtil.execute_with_result(cmd_lst=["git", "commit", "-m", commit_message])
 
-    
     @staticmethod
-    def setup_project_directory(repository: str | None) -> str:
+    def setup_project_directory(scope: bool, repository: str) -> str:
         """
         Sets up the project directory based on the repository argument.
 
         Args:
-            repository (Optional[str]): GitHub repository URL or name.
+            scope (bool): If the repository scope is local or remote
+            repository (str): GitHub repository URL or name.
 
         Returns:
             str: The name of the project directory.
         """
-        if repository != None:
+        project_dir = repository
+        if not scope or repository.endswith(".git"):
             project_dir = repository.split("/")[-1].replace(".git", "")
-        else:
-            project_dir = "sample"
 
         current_dir = abspath(__file__)
         parent_dir = dirname(dirname(dirname(current_dir)))
         os.chdir(parent_dir)
 
         if not Path(project_dir).exists():
-            if repository != None:
+            if not scope:
+                logging.info("Cloning remote repository.")
                 CommandUtil.execute_with_result(cmd=f"git clone {repository}")
             else:
+                logging.info(f"Creating '{repository}' repository.")
                 os.mkdir(project_dir)
 
         project_dir = join(parent_dir, project_dir)
@@ -68,16 +70,18 @@ class Program:
         try:
             arguments = ArgumentUtil.parse(args)
             current_time = datetime.now()
-            current_branch = "main" if arguments.repository != None else "master"
+            current_branch = "main" if not arguments.local else "master"
             analytics_file_path = "analytics.json"
-            project_dir = Program.setup_project_directory(arguments.repository)
+            project_dir = Program.setup_project_directory(
+                arguments.local, arguments.repository
+            )
 
             reduction_percentage = random.uniform(0, 0.2)
             total_commits = int(arguments.commits * (1 - reduction_percentage))
 
             # Check git version and configuration
 
-            if arguments.repository != None:
+            if not arguments.local:
                 CommandUtil.execute_with_result(cmd="git --version")
 
             user_name = CommandUtil.execute_with_result(
@@ -107,7 +111,7 @@ class Program:
                     current_day=str(current_time.date()),
                 )
                 Program.commit_changes("Initial commit")
-                if arguments.repository != None:
+                if not arguments.local:
 
                     if not ValidationUtil.git_has_remote():
                         CommandUtil.execute_with_result(
@@ -161,7 +165,8 @@ class Program:
             Program.commit_changes(f"chore: update analytics {current_time.time()}")
 
             # Push changes if repository is specified
-            if arguments.repository != None:
+            if not arguments.local:
+                logging.info("Uploading repository to GitHub.")
                 CommandUtil.execute_with_result(cmd=f"git push origin {current_branch}")
 
             logging.info("Program execution completed successfully.")

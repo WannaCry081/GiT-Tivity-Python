@@ -19,6 +19,6 @@ echo """
 
 # Run the main script with 20 commits as default
 echo "Running GitHub Activity Generator..."
-python main.py --commits=20
+python main.py --commits=20 --local --repository=sample-project
 
 echo "Script execution completed."

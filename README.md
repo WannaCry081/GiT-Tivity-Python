@@ -52,6 +52,7 @@ A simple Python tool that simulates GitHub contributions by generating fake comm
 | `-rc` / `--random-commits` | Enable random commit distribution (default: `False`)                   |
 | `-nw` / `--no-weekends`    | Exclude weekends from commit days (default: `False`)                   |
 | `-c` / `--commits`         | Specify the number of commits to generate (default: `10`)              |
+| `-l` / `--local`           | Specify if the repository is local (default: `False`)                  |
 | `-r` / `--repository`      | GitHub repository URL (e.g., `https://github.com/username/repository`) |
 
 ### Example Usage
@@ -59,18 +60,18 @@ A simple Python tool that simulates GitHub contributions by generating fake comm
 1. **Generate 10 commits and push to GitHub**:
 
    ```bash
-   python main.py --commits 10 --repository https://github.com/yourusername/yourrepository
+   python main.py --commits=10 --repository=https://github.com/yourusername/yourrepository
    ```
 
 2. **Generate random commits and exclude weekends**:
 
    ```bash
-   python main.py --random-commits --no-weekends --commits 5 --repository https://github.com/yourusername/yourrepository
+   python main.py --random-commits --no-weekends --commits=5 --repository=https://github.com/yourusername/yourrepository
    ```
 
 3. **Run with default settings (10 commits, no repository specified)**:
    ```bash
-   python main.py
+   python main.py --local --repository=sample-repository
    ```
 
 ## 🚀 How It Works
