@@ -6,7 +6,7 @@ class ArgumentUtil:
     """
     Utility class to parse command-line arguments for configuring commit distribution and repository settings.
     """
-    
+
     @staticmethod
     def parse(arguments: List[str]):
         """
@@ -45,8 +45,16 @@ class ArgumentUtil:
         )
 
         parser.add_argument(
+            "-l",
+            "--local",
+            action="store_true",
+            help="Configure if the repository is local",
+        )
+
+        parser.add_argument(
             "-r",
             "--repository",
+            required=True,
             type=str,
             help="URL or name of the target GitHub repository (e.g., 'https://github.com/user/repo').",
         )
